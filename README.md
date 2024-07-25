@@ -30,14 +30,3 @@ This Python program fetches the current weather information for a specified city
 ```bash
  main.py
 
-## Example
-
-```bash
- $ python main.py
- Enter a city for the weather information: London
- Weather in London:
- Temperature: 25°C
- Humidity: 50%
- Condition: clear sky
- It's warm.
-
