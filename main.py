@@ -1,6 +1,7 @@
 import requests
 
 API_KEY = 'API_KEY'
+air = 'null'
 
 def get_weather_data(city):
     URL = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric'
@@ -19,17 +20,20 @@ def display_weather_info(weather_data, city):
         humidity = main['humidity']
         weather = weather_data['weather'][0]['description']
 
-        print(f"Weather in {city}:")
-        print(f"Temperature: {temperature}°C")
-        print(f"Humidity: {humidity}%")
-        print(f"Condition: {weather}")
-
         if temperature > 30:
-            print("It's very hot.")
+            air = "it's very hot"
         elif 15 <= temperature <= 30:
-            print("It's warm.")
+            air = "it's warm"
+        elif 0 <= temperature <=14:
+            air = "it's cold"
         else:
-            print("It's cold.")
+            air = "its like ice"
+
+        print(f"Weather in {city}:")
+        print(f"Temperature: {temperature}°C and "+ air)
+        print(f"Condition: {weather}")
+        print(f"Humidity: {humidity}%")
+
     else:
         print("Error fetching weather data.")
 
